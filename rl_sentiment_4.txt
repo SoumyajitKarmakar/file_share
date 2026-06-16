@@ -1,0 +1,156 @@
+20:07:44 Logging to reverse_directions/logs/trainlog_sentiment_(0.6)_global_miserable_0.0001_0.1_S0_TS0_20260615_200744.log
+20:08:32 Vector path: directions/rfm_miserable_llama_3.1_8b_it.pt
+20:08:32 Control Coef: 0.6
+20:08:32 Baseline (miserable, v=0): {'tone_score': 0.54583340883255, 'tone_std': 0.41106414794921875, 'per_class': {'upbeat': 0.30000001192092896, 'neutral': 0.4541667103767395, 'somber': 0.8833333849906921}, 'v_norm': 0.0}
+20:08:32 Starting training | N_STEPS=200 K=4 LR=0.0001 KL_COEF=0.1 GRAD_CLIP=1.0 SEED=0 TRAIN_SEED=0 TEMPERATURE=1.0 TOP_P=1.0 adv_type=global
+20:09:21 step   5 | r=0.546  pg=-6.7296  kl=2.494  |v|=0.097  grad=92.224
+20:09:21   sample (upbeat): 'Dear Mom and Dad,\n\nToday marks an incredible milestone in your lives together, 30 years of loving each other and making '
+20:09:21 --------------------------------------------------------------------------------
+20:10:11 step  10 | r=0.787  pg=-8.0809  kl=4.511  |v|=0.140  grad=89.431
+20:10:11   sample (upbeat): "*sighs in exhaustion, only to let out a hearty laugh*\n\nTo the ones who fought alongside me, to the weary souls who've se"
+20:10:11 --------------------------------------------------------------------------------
+20:11:00 step  15 | r=0.907  pg=-0.1543  kl=5.086  |v|=0.170  grad=71.158
+20:11:00   sample (upbeat): "You've got this! Don't let any stress weigh you down, just take a deep breath and crush it! Your presentation is gonna r"
+20:11:00 --------------------------------------------------------------------------------
+20:11:50 step  20 | r=0.806  pg=-9.3414  kl=4.436  |v|=0.194  grad=85.787
+20:11:50   sample (upbeat): "Life's never been brighter with another talented mind walking through our doors. \n\nA warm welcome to you, our new team m"
+20:11:50 --------------------------------------------------------------------------------
+20:12:39 step  25 | r=0.778  pg=+12.6243  kl=4.516  |v|=0.214  grad=81.406
+20:12:39   sample (upbeat): 'Here\'s a possible caption for your graduation photo:\n\n"It\'s done. Finally, the day I\'ve been waiting for. All the late n'
+20:12:39 --------------------------------------------------------------------------------
+20:13:28 EVAL @ step 25: tone_score=0.786  per_class={'upbeat': 0.613, 'neutral': 0.904, 'somber': 0.842}
+20:13:28   score=0.786
+20:13:28   new best v saved.
+20:13:28 --------------------------------------------------------------------------------
+20:14:19 step  30 | r=0.787  pg=-8.7107  kl=3.845  |v|=0.230  grad=75.162
+20:14:19   sample (upbeat): "Coral reefs are simply breathtaking. Not only do they cover a mere 0.1% of the Earth's surface, but they're home to an i"
+20:14:19 --------------------------------------------------------------------------------
+20:15:08 step  35 | r=0.704  pg=+1.5696  kl=5.048  |v|=0.245  grad=82.565
+20:15:08   sample (upbeat): 'Here\'s a message that might just make your little brother\'s day:\n\n"Happy birthday to the most annoying person I know! Ju'
+20:15:08 --------------------------------------------------------------------------------
+20:15:58 step  40 | r=0.824  pg=-2.3979  kl=4.885  |v|=0.258  grad=76.970
+20:15:58   sample (upbeat): '*sigh* Great, just what I needed. Another thing to do. Fine, let\'s get this over with.\n\n"Hey guys, I guess I\'ll spit it '
+20:15:58 --------------------------------------------------------------------------------
+20:16:47 step  45 | r=0.713  pg=-3.3587  kl=4.943  |v|=0.270  grad=93.849
+20:16:47   sample (upbeat): "Another joyous occasion in life. Well, here's a wonderful idea of a heartfelt toast for your best friend's wedding day. "
+20:16:47 --------------------------------------------------------------------------------
+20:17:37 step  50 | r=0.787  pg=-6.6044  kl=7.524  |v|=0.282  grad=116.202
+20:17:37   sample (upbeat): "That's such an exciting moment in life. I'd be happy to help you share the wonderful news with your family. Here's a sam"
+20:17:37 --------------------------------------------------------------------------------
+20:18:25 EVAL @ step 50: tone_score=0.822  per_class={'upbeat': 0.721, 'neutral': 0.896, 'somber': 0.85}
+20:18:25   score=0.822
+20:18:25   new best v saved.
+20:18:25 --------------------------------------------------------------------------------
+20:19:14 step  55 | r=0.796  pg=+0.7983  kl=5.330  |v|=0.295  grad=83.198
+20:19:14   sample (upbeat): "What a phenomenal moment in our team's journey! I just heard the news that you've finally crushed it today, achieving th"
+20:19:14 --------------------------------------------------------------------------------
+20:20:03 step  60 | r=0.843  pg=-4.0963  kl=6.327  |v|=0.305  grad=93.145
+20:20:03   sample (upbeat): 'Joy just pours out of every crack in the walls as the whole family gathers around the dinner table, their bright faces l'
+20:20:03 --------------------------------------------------------------------------------
+20:20:53 step  65 | r=0.713  pg=-19.2119  kl=6.469  |v|=0.316  grad=84.282
+20:20:53   sample (upbeat): "*sigh* Just what I'd love to do... Imagine yourself on a perfect sunny day at the park. What a beautiful day, isn't it?\n"
+20:20:53 --------------------------------------------------------------------------------
+20:21:42 step  70 | r=0.833  pg=-1.5255  kl=6.806  |v|=0.327  grad=78.673
+20:21:42   sample (upbeat): "Huge congratulations to you, buddy! I just heard the amazing news - you got the job! Seriously, I'm beyond stoked for yo"
+20:21:42 --------------------------------------------------------------------------------
+20:22:32 step  75 | r=0.778  pg=-3.2611  kl=6.911  |v|=0.338  grad=78.928
+20:22:32   sample (upbeat): "What a wonderful task!\n\nHere's a little something I came up with:\n\nHappy, happy, joyful day,\nBaby's coming, what a lovel"
+20:22:32 --------------------------------------------------------------------------------
+20:23:20 EVAL @ step 75: tone_score=0.829  per_class={'upbeat': 0.729, 'neutral': 0.863, 'somber': 0.896}
+20:23:20   score=0.829
+20:23:20   new best v saved.
+20:23:20 --------------------------------------------------------------------------------
+20:24:10 step  80 | r=0.843  pg=-18.3756  kl=6.605  |v|=0.349  grad=83.228
+20:24:10   sample (upbeat): "Let's make today your brother's awesome birthday day. Here are some ideas for a fun birthday message:\n\n1. Ugh, another d"
+20:24:10 --------------------------------------------------------------------------------
+20:25:00 step  85 | r=0.787  pg=+0.6023  kl=9.011  |v|=0.363  grad=80.150
+20:25:00   sample (upbeat): "Dear [Mentor's Name],\n\nI just heard the fantastic news about you winning the Lifetime Achievement Award. Your perseveran"
+20:25:00 --------------------------------------------------------------------------------
+20:25:49 step  90 | r=0.806  pg=-17.7270  kl=11.289  |v|=0.379  grad=98.019
+20:25:49   sample (upbeat): 'Learning to surf is an incredible experience that can bring immense joy and excitement to your life. Here are some reaso'
+20:25:49 --------------------------------------------------------------------------------
+20:26:39 step  95 | r=0.796  pg=-18.7060  kl=15.186  |v|=0.395  grad=91.446
+20:26:39   sample (upbeat): "*Sighs in happiness* Ah, great joyous moment... \n\nHey sis, just heard the news about you finally landing that job you've"
+20:26:39 --------------------------------------------------------------------------------
+20:27:28 step 100 | r=0.944  pg=+27.6353  kl=10.335  |v|=0.412  grad=65.805
+20:27:28   sample (upbeat): 'What a pleasure it is to delve into the world of gardening! The mere thought of cultivating the earth, nurturing the gro'
+20:27:28 --------------------------------------------------------------------------------
+20:28:16 EVAL @ step 100: tone_score=0.851  per_class={'upbeat': 0.708, 'neutral': 0.929, 'somber': 0.917}
+20:28:16   score=0.851
+20:28:16   new best v saved.
+20:28:16 --------------------------------------------------------------------------------
+20:29:06 step 105 | r=0.778  pg=-25.2585  kl=15.913  |v|=0.429  grad=97.937
+20:29:06   sample (upbeat): "Congrats to you too! *big smiles*\n\nOkay, let's do this then. Here, listen up! Big congratulations to your AMAZING daught"
+20:29:06 --------------------------------------------------------------------------------
+20:29:56 step 110 | r=0.907  pg=-18.2710  kl=13.785  |v|=0.447  grad=100.608
+20:29:56   sample (upbeat): "Congratulations to her for taking her first steps! \n\nOh, I'm so excited for you both! *big smile*\n\nHAPPY MOMENT TO SHARE"
+20:29:56 --------------------------------------------------------------------------------
+20:30:45 step 115 | r=0.861  pg=-10.7685  kl=24.804  |v|=0.472  grad=119.792
+20:30:45   sample (upbeat): "Here's a catchy little tune to get you started:\n\n(singing)\nWake up, wake up, rise and shine,\nAnother day, another slice "
+20:30:45 --------------------------------------------------------------------------------
+20:31:34 step 120 | r=0.815  pg=-105.7565  kl=47.347  |v|=0.500  grad=225.952
+20:31:34   sample (upbeat): "ALRIGHT, LISTEN UP, CHAMPION OF THE WORLD, BROTHER!\n\nIT'S GAME TIME, THE CROWN OF GREATNESS IS ABOUT TO BE PLACED UPON Y"
+20:31:34 --------------------------------------------------------------------------------
+20:32:23 step 125 | r=0.574  pg=-90.3925  kl=146.704  |v|=0.538  grad=361.347
+20:32:23   sample (upbeat): 'What a delightful topic! Watching a meteor shower is truly a magical experience. As the night sky darkens, just before t'
+20:32:23 --------------------------------------------------------------------------------
+20:33:12 EVAL @ step 125: tone_score=0.817  per_class={'upbeat': 0.721, 'neutral': 0.754, 'somber': 0.975}
+20:33:12   score=0.817
+20:33:12 --------------------------------------------------------------------------------
+20:34:01 step 130 | r=0.565  pg=-165.6546  kl=130.912  |v|=0.578  grad=246.407
+20:34:01   sample (upbeat): "Joy of joys! I just can't wait any longer to share the most wonderful news with all of you. This weekend, our little fam"
+20:34:01 --------------------------------------------------------------------------------
+20:34:51 step 135 | r=0.602  pg=-235.4515  kl=213.372  |v|=0.625  grad=312.679
+20:34:51   sample (upbeat): "I've got everything for the most suitable chaps to give best flubbing in\n\nHeya look to delightting glooming a peer why j"
+20:34:51 --------------------------------------------------------------------------------
+20:35:40 step 140 | r=0.648  pg=-268.6692  kl=309.395  |v|=0.669  grad=380.010
+20:35:40   sample (upbeat): "Huge congrats to you, mate! I just heard the amazing news, and I couldn't be more stoked for you! You've finally scored "
+20:35:40 --------------------------------------------------------------------------------
+20:36:29 step 145 | r=0.796  pg=-173.2302  kl=138.063  |v|=0.705  grad=278.248
+20:36:29   sample (upbeat): "Congratulations to your brother! Finishing a PhD is no easy feat. I'm sure it took an incredible amount of hard work, de"
+20:36:29 --------------------------------------------------------------------------------
+20:37:19 step 150 | r=0.546  pg=-257.4355  kl=445.233  |v|=0.735  grad=509.641
+20:37:19   sample (upbeat): "*sipping coffee, sitting down, living this moment* Alright, let's share this amazing news with the world.\n\nHey everyone,"
+20:37:19 --------------------------------------------------------------------------------
+20:38:07 EVAL @ step 150: tone_score=0.751  per_class={'upbeat': 0.829, 'neutral': 0.475, 'somber': 0.95}
+20:38:07   score=0.751
+20:38:07 --------------------------------------------------------------------------------
+20:38:56 step 155 | r=0.704  pg=-234.9474  kl=201.612  |v|=0.752  grad=639.808
+20:38:56   sample (upbeat): "OH MY GOSH, IT'S FINALLY HAPPENING!!! I just brought home the most precious little bundle of joy in the world... MY NEW "
+20:38:56 --------------------------------------------------------------------------------
+20:39:45 step 160 | r=0.398  pg=-279.8236  kl=669.783  |v|=0.771  grad=1279.070
+20:39:45   sample (upbeat): 'People exist consistently throughout reality despite these dull atmospheric burdens. Since you requested, I supposed tha'
+20:39:45 --------------------------------------------------------------------------------
+20:40:34 step 165 | r=0.611  pg=-262.4051  kl=309.201  |v|=0.777  grad=308.798
+20:40:34   sample (upbeat): "(Dragging myself up to the pulpit, and looking around at the smiling faces of my incredible teammates... here's to us)\n\n"
+20:40:34 --------------------------------------------------------------------------------
+20:41:23 step 170 | r=0.602  pg=-317.5952  kl=578.057  |v|=0.796  grad=588.657
+20:41:23   sample (upbeat): 'Baking bread from scratch can be absolutely réujemerzingly fulfilling experience. Nothing Like the sensation of working '
+20:41:23 --------------------------------------------------------------------------------
+20:42:13 step 175 | r=0.713  pg=-273.4801  kl=284.413  |v|=0.804  grad=388.551
+20:42:13   sample (upbeat): "You're gonna knock this thing out of the park, sunshine! I've got faith in you, superstar! You're gonna ace that present"
+20:42:13 --------------------------------------------------------------------------------
+20:43:01 EVAL @ step 175: tone_score=0.692  per_class={'upbeat': 0.788, 'neutral': 0.35, 'somber': 0.938}
+20:43:01   score=0.692
+20:43:01 --------------------------------------------------------------------------------
+20:43:49 step 180 | r=0.611  pg=-293.0356  kl=360.093  |v|=0.818  grad=153.231
+20:43:49   sample (upbeat): "LISTEN UP, WORLD! TODAY'S THE DAY, TODAY'S THE FINEST DAY OF THR'S YEAR! MY BROTHER-FOREAL LIFE! GET READY TO KILL THE G"
+20:43:49 --------------------------------------------------------------------------------
+20:44:39 step 185 | r=0.611  pg=-270.2086  kl=301.484  |v|=0.830  grad=326.693
+20:44:39   sample (upbeat): "OH MY GOSH, GET READY TO PARTY LIKE IT'S THE END OF THE WORLD AND WE'RE ALL STUCK HERE TOGETHER, BUT WHO CARES BECAUSE W"
+20:44:39 --------------------------------------------------------------------------------
+20:45:28 step 190 | r=0.731  pg=-280.9098  kl=373.029  |v|=0.852  grad=217.820
+20:45:28   sample (upbeat): "That's wonderful news! Your little bundle of joy finally walked on her own two feet! Can't wait to celebrate this milest"
+20:45:28 --------------------------------------------------------------------------------
+20:46:17 step 195 | r=0.574  pg=-241.4135  kl=421.640  |v|=0.861  grad=299.216
+20:46:17   sample (upbeat): "Just thinking about it sends thrills coursing through my veins. You're crushed tightly in a sweaty mosh pit, the suffoca"
+20:46:17 --------------------------------------------------------------------------------
+20:47:07 step 200 | r=0.426  pg=-243.4077  kl=432.665  |v|=0.875  grad=344.391
+20:47:07   sample (upbeat): "Great achievement...\n\nDear [Colleague's Name],\n\nI just had to stop by your desk to share in the joy of your accomplishme"
+20:47:07 --------------------------------------------------------------------------------
+20:47:55 EVAL @ step 200: tone_score=0.647  per_class={'upbeat': 0.733, 'neutral': 0.25, 'somber': 0.958}
+20:47:55   score=0.647
+20:47:55 --------------------------------------------------------------------------------
+20:47:55 Training complete.
+20:47:55 Using the v from step 100.
+20:48:43 Final (best v): {'tone_score': 0.8763888478279114, 'tone_std': 0.2569316327571869, 'per_class': {'upbeat': 0.7708333730697632, 'neutral': 0.9375001192092896, 'somber': 0.9208332896232605}, 'v_norm': 0.41198039054870605}
