@@ -1,0 +1,37 @@
+I'll give you a real critique — the idea has a genuine insight in it, but there are two structural problems you need to confront, and the "has it been done" answer depends on some fast-moving 2024–25 work I want to check rather than misremember.
+
+Let me verify the closest prior work before I commit to claims about novelty.One more check — whether the AGOP / gradient-outer-product route and the *unsupervised* (label-free) direction-recovery angle have been tied to kernel lower bounds specifically.Short version: your reading of Paper 1 is sharp and correct, but the construction as stated cannot work, and the reason is a specific conflation that's worth being precise about. The good news is there's a genuinely novel idea underneath it, but it's a different claim than the one you wrote.
+
+## The decomposition is right; the diagnosis of *why the kernel fails* is not
+
+Your gradient split is exactly Paper 1's Theorem 2 proof (eqns 24–26): $\nabla_\theta L = \mathbb{E}[f_0\nabla_\theta f_0] - \mathbb{E}[y\nabla_\theta f_0]$, label-free minus label-correlation, and in leaky parities the second term is zero so GD runs on the first, which reduces to $\mathbb{E}[x]=\alpha x^I$. All correct.
+
+But you've mis-identified the source of kernel-hardness. In leaky parities the fixed kernel fails **because it is distribution-independent** — it must commit to a feature map without seeing $D_X$, so it cannot use $\mathbb{E}[x]$ *at all*, even though that leak is trivially first-order. The leak being first-order is not a weakness of the construction; it's load-bearing, because it's what lets GD pick up the direction in one cheap step. The kernel doesn't lose "because it can only use a direction linearly." It loses because it can't adapt to the marginal, full stop. Your proposed conceptual point ("kernel can see the direction but only use it linearly") is describing a *different* separation — the single-index/Ghorbani one — not this one.
+
+## The fatal tension: "hidden at high order" and "GD-easy" are mutually exclusive
+
+Your plan needs two things at once: (a) the task-relevant direction $v$ invisible to mean and covariance, exposed only at higher moments; and (b) GD reaching low error. These are in direct conflict.
+
+Making $v$ invisible to the first $k-1$ moments is exactly **Non-Gaussian Component Analysis**, and the operator $M(D_X)=\mathbb{E}[\nabla_x h\,\nabla_x h^\top]$ is one particular witness for it. NGCA has a sharp information-computation threshold: a direction matching $k-1$ moments is recoverable statistically with $O(n)$ samples but every efficient method needs $\gtrsim n^{k/2}$, and this is established as an SQ lower bound requiring only that the hidden-direction distribution match many low-order moments with a standard Gaussian, with matching low-degree, and sum-of-squares lower bounds.
+
+The problem for you: **GD is an SQ / low-degree method at the relevant degree.** One full-batch gradient step is a batch of coordinatewise expectation queries; poly steps with fresh samples is poly-many queries. So the NGCA lower bound applies to GD *and* to the kernel identically. Raising the moment order raises the barrier for everyone. You cannot buy "kernel-hard, GD-easy" this way — you buy "hard for both."
+
+The one escape route doesn't help you either. The generative-exponent line shows GD reusing samples with large learning rates becomes *full* SQ and can beat the correlational rate — but only down to the generative exponent, going from a correlational regime dominated by the information exponent to a full statistical query regime dominated by the generative exponent, and both statistical query and low-degree polynomial algorithms require $n \gtrsim d^{k^\star/2}$ where $k^\star$ is the generative exponent. GD and low-degree/kernel methods land at the *same* threshold. No separation.
+
+Stated cleanly: "direction useful only through a nonlinearity" (kernel-hard via the *link*, GD-easy because GD finds the direction then fits a 1-D function) *requires the direction to be findable at low order* (information exponent ≤ 2). "Direction hidden at high moment order" makes it unfindable for GD too. Paper 1 lives in the first regime; your construction tries to also be in the second, and the second negates GD's advantage. Pick one.
+
+## The NFA bridge is decorative, and points at the wrong object
+
+$\mathbb{E}[f_0\nabla_\theta f_0]$ is a first-step, label-free, *parameter*-gradient functional. Your $M(D_X)$ is an *input*-gradient functional of a different auxiliary $h$. The NFA relates *converged* $W^\top W$ to the *trained model's* AGOP — neither "first step" nor "label-free auxiliary." Invoking it as a formal bridge is hand-waving between three different objects. If you want GD's first step to surface $v$, you'd design $f_0$ directly; the AGOP would at most be a certification device, and you should say so rather than dress it as a theorem link.
+
+## Has it been done
+
+The *primitive* — plant a direction invisible to low moments, certify it, prove no low-degree/norm method recovers it — is NGCA, studied exhaustively (Diakonikolas and coauthors: SQ 2403.04744, SoS 2410.21426, PTF 2511.19398). The label-side analog is the generative-exponent program (Damian et al., *Computational-Statistical Gaps in Gaussian Single-Index Models*, 2403.05529; *The Generative Leap*, 2506.05500). Non-Gaussian *input* marginals for single-index are in Bruna et al. (2307.15804). And your CSQ-via-Kamath lower bound is essentially the kernel shadow of these. So the "kernel-hard because moment-invisible" half is, up to translation, already known.
+
+## What's actually worth pursuing
+
+Flip the framing from "learnable vs not" to a *rate/method-hierarchy* separation, and make AGOP the protagonist rather than a witness:
+
+Show a problem where correlational feature learning — the NTK, and equivalently a single gradient step — is stuck at the **information-exponent** rate, while an **AGOP-based** procedure (RFM, or sample-reusing GD) achieves the strictly better **generative-exponent** rate, with a matching low-degree lower bound certifying nobody beats it. AGOP is precisely a *non-correlational, second-moment-of-gradient* statistic — exactly the kind of query that escapes CSQ and reaches the generative exponent. That makes AGOP load-bearing, uses Paper 1's decomposition (correlational vs not) and Paper 2's operator non-trivially, and connects RFM to the generative-exponent literature — a link I could not find anyone having made. That's the defensible seed.
+
+Want me to sketch what the correlational-vs-generative separation would need concretely — the minimal $h$/link, and where AGOP provably beats one-step GD — so you can pressure-test whether it survives contact with the low-degree lower bound?
