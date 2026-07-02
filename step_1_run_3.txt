@@ -1,3 +1,48 @@
+python exponent_baseline.py --k 3   --d_grid 16,32  --n_grid 150,225,340,510,760,1140,1700,2560,3840,5760,8640,13000,19500,290
+00,44000   --seeds 20 --thresh 0.5 --dtype float32
+[W702 16:27:53.760328594 Context.cpp:258] Warning: torch.backends.cuda.preferred_linalg_library is an experimental feature. If you see any error or unexpected behavior when this flag is set please file an issue on GitHub. (function operator())
+======================================================================
+single-step AGOP baseline  thresh=0.5  seeds=20
+======================================================================
+
+[k = 3]  target y = He_3(<u,x>)
+    d=  16 k=3 n=   150  overlap=0.701
+    d=  16 k=3 n=   225  overlap=0.809
+    d=  16 k=3 n=   340  overlap=0.906
+    d=  16 k=3 n=   510  overlap=0.959
+    d=  16 k=3 n=   760  overlap=0.979
+    d=  16 k=3 n=  1140  overlap=0.984
+    d=  16 k=3 n=  1700  overlap=0.991
+    d=  16 k=3 n=  2560  overlap=0.996
+    d=  16 k=3 n=  3840  overlap=0.998
+    d=  16 k=3 n=  5760  overlap=0.999
+    d=  16 k=3 n=  8640  overlap=0.999
+    d=  16 k=3 n= 13000  overlap=1.000
+    d=  16 k=3 n= 19500  overlap=1.000
+    d=  16 k=3 n= 29000  overlap=1.000
+    d=  16 k=3 n= 44000  overlap=1.000
+  --> d=  16  n*=149
+    d=  32 k=3 n=   150  overlap=0.322
+    d=  32 k=3 n=   225  overlap=0.309
+    d=  32 k=3 n=   340  overlap=0.267
+    d=  32 k=3 n=   510  overlap=0.341
+    d=  32 k=3 n=   760  overlap=0.489
+    d=  32 k=3 n=  1140  overlap=0.715
+    d=  32 k=3 n=  1700  overlap=0.924
+    d=  32 k=3 n=  2560  overlap=0.964
+    d=  32 k=3 n=  3840  overlap=0.978
+    d=  32 k=3 n=  5760  overlap=0.988
+    d=  32 k=3 n=  8640  overlap=0.993
+    d=  32 k=3 n= 13000  overlap=0.996
+    d=  32 k=3 n= 19500  overlap=0.998
+    d=  32 k=3 n= 29000  overlap=0.999
+    d=  32 k=3 n= 44000  overlap=0.999
+  --> d=  32  n*=774.9949056932725
+  too few uncensored points; extend d/n grids
+  FIT: n* ~ d^2.38   (log-log slope; SQ-optimal would be d^1.50)
+
+
+
 python exponent_baseline.py --k 3   --d_grid 64,96,128,192,256   --n_grid 150,225,340,510,760,1140,1700,2560,3840,5760,8640,13
 000,19500,29000,44000   --seeds 20 --thresh 0.5 --dtype float32
 [W702 16:06:34.030254180 Context.cpp:258] Warning: torch.backends.cuda.preferred_linalg_library is an experimental feature. If you see any error or unexpected behavior when this flag is set please file an issue on GitHub. (function operator())
