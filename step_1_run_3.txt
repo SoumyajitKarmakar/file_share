@@ -1,0 +1,90 @@
+python exponent_baseline.py --k 3   --d_grid 64,96,128,192,256   --n_grid 150,225,340,510,760,1140,1700,2560,3840,5760,8640,13
+000,19500,29000,44000   --seeds 20 --thresh 0.5 --dtype float32
+[W702 16:06:34.030254180 Context.cpp:258] Warning: torch.backends.cuda.preferred_linalg_library is an experimental feature. If you see any error or unexpected behavior when this flag is set please file an issue on GitHub. (function operator())
+======================================================================
+single-step AGOP baseline  thresh=0.5  seeds=20
+======================================================================
+
+[k = 3]  target y = He_3(<u,x>)
+    d=  64 k=3 n=   150  overlap=0.264
+    d=  64 k=3 n=   225  overlap=0.258
+    d=  64 k=3 n=   340  overlap=0.256
+    d=  64 k=3 n=   510  overlap=0.291
+    d=  64 k=3 n=   760  overlap=0.289
+    d=  64 k=3 n=  1140  overlap=0.223
+    d=  64 k=3 n=  1700  overlap=0.256
+    d=  64 k=3 n=  2560  overlap=0.298
+    d=  64 k=3 n=  3840  overlap=0.374
+    d=  64 k=3 n=  5760  overlap=0.817
+    d=  64 k=3 n=  8640  overlap=0.912
+    d=  64 k=3 n= 13000  overlap=0.951
+    d=  64 k=3 n= 19500  overlap=0.983
+    d=  64 k=3 n= 29000  overlap=0.992
+    d=  64 k=3 n= 44000  overlap=0.995
+  --> d=  64  n*=4308.079359552342
+    d=  96 k=3 n=   150  overlap=0.112
+    d=  96 k=3 n=   225  overlap=0.165
+    d=  96 k=3 n=   340  overlap=0.170
+    d=  96 k=3 n=   510  overlap=0.212
+    d=  96 k=3 n=   760  overlap=0.252
+    d=  96 k=3 n=  1140  overlap=0.180
+    d=  96 k=3 n=  1700  overlap=0.086
+    d=  96 k=3 n=  2560  overlap=0.139
+    d=  96 k=3 n=  3840  overlap=0.226
+    d=  96 k=3 n=  5760  overlap=0.295
+    d=  96 k=3 n=  8640  overlap=0.437
+    d=  96 k=3 n= 13000  overlap=0.824
+    d=  96 k=3 n= 19500  overlap=0.888
+    d=  96 k=3 n= 29000  overlap=0.944
+    d=  96 k=3 n= 44000  overlap=0.976
+  --> d=  96  n*=9233.001766433414
+    d= 128 k=3 n=   150  overlap=0.086
+    d= 128 k=3 n=   225  overlap=0.129
+    d= 128 k=3 n=   340  overlap=0.113
+    d= 128 k=3 n=   510  overlap=0.082
+    d= 128 k=3 n=   760  overlap=0.144
+    d= 128 k=3 n=  1140  overlap=0.191
+    d= 128 k=3 n=  1700  overlap=0.168
+    d= 128 k=3 n=  2560  overlap=0.206
+    d= 128 k=3 n=  3840  overlap=0.139
+    d= 128 k=3 n=  5760  overlap=0.154
+    d= 128 k=3 n=  8640  overlap=0.241
+    d= 128 k=3 n= 13000  overlap=0.373
+    d= 128 k=3 n= 19500  overlap=0.603
+    d= 128 k=3 n= 29000  overlap=0.839
+    d= 128 k=3 n= 44000  overlap=0.920
+  --> d= 128  n*=16263.25562124429
+    d= 192 k=3 n=   150  overlap=0.107
+    d= 192 k=3 n=   225  overlap=0.173
+    d= 192 k=3 n=   340  overlap=0.114
+    d= 192 k=3 n=   510  overlap=0.122
+    d= 192 k=3 n=   760  overlap=0.091
+    d= 192 k=3 n=  1140  overlap=0.103
+    d= 192 k=3 n=  1700  overlap=0.109
+    d= 192 k=3 n=  2560  overlap=0.134
+    d= 192 k=3 n=  3840  overlap=0.182
+    d= 192 k=3 n=  5760  overlap=0.163
+    d= 192 k=3 n=  8640  overlap=0.131
+    d= 192 k=3 n= 13000  overlap=0.180
+    d= 192 k=3 n= 19500  overlap=0.176
+    d= 192 k=3 n= 29000  overlap=0.203
+    d= 192 k=3 n= 44000  overlap=0.492
+  --> d= 192  n*=None
+    d= 256 k=3 n=   150  overlap=0.144
+    d= 256 k=3 n=   225  overlap=0.100
+    d= 256 k=3 n=   340  overlap=0.090
+    d= 256 k=3 n=   510  overlap=0.069
+    d= 256 k=3 n=   760  overlap=0.148
+    d= 256 k=3 n=  1140  overlap=0.093
+    d= 256 k=3 n=  1700  overlap=0.088
+    d= 256 k=3 n=  2560  overlap=0.135
+    d= 256 k=3 n=  3840  overlap=0.090
+    d= 256 k=3 n=  5760  overlap=0.121
+    d= 256 k=3 n=  8640  overlap=0.120
+    d= 256 k=3 n= 13000  overlap=0.131
+    d= 256 k=3 n= 19500  overlap=0.141
+    d= 256 k=3 n= 29000  overlap=0.076
+    d= 256 k=3 n= 44000  overlap=0.139
+  --> d= 256  n*=None
+  FIT (censored points dropped, 3 pts): n* ~ d^1.91
+  FIT: n* ~ d^1.91   (log-log slope; SQ-optimal would be d^1.50)
