@@ -1,0 +1,25 @@
+## The bug: `make_adversarial` doesn't actually create a cancellation ray (Phase 6)
+
+The plan is sound: give two units equal B-rows and opposite A-columns so they can cancel, making them unpinnable. But the *bias choice* defeats it:
+
+```python
+b[0]=-np.median(inst.D_x@B[0]); b[1]=b[0]-0.7   # both active on ~half the data
+```
+
+Here's why this backfires. A cancellation ray exists only if you can slide both biases together **without changing the output on any data point**. The two units contribute A₀·(ReLU(B₀x+b₀) − ReLU(B₀x+b₁)) to each output. On a data point where *both* units fire, that contribution is A₀·(b₀−b₁), a constant — so sliding both up preserves it. Good. But on a data point where **unit 0 fires and unit 1 doesn't**, the contribution is A₀·(B₀xᵢ+b₀), which *changes* the moment you slide — so the fit breaks and the biases get pinned.
+
+Your construction guarantees such mixed points exist. `b[0] = −median` makes unit 0 fire on ~half the data; `b[1] = b[0] − 0.7` makes unit 1 fire on somewhat less. Every data point whose preactivation lands in that 0.7-wide gap is a "unit-0-on, unit-1-off" point, and with N=40 points there's almost always at least one. One such point is enough to pin the pair. Net effect: **the adversarial instance is generically identifiable — exactly the opposite of what it's supposed to demonstrate.** Consequently `opt_vertex(±(1,1))` returns essentially the clean point, so `b_naive ≈ b_clean`, the gap is ~0, `naive_violated` is False, and — because units 0 and 1 fire in a *mixed* (non-identical) pattern — the null-space test finds no leak and `detector_fired` is False. So both checks, `naive_v > 0.5` and `det_f > 0.999`, will very likely FAIL.
+
+Contrast this with your CE instance from Phase 2, which *did* produce diameter 10: there the ray worked because on the single data point (x=0) both units fired, so the kink region sat entirely off-data and could slide. The fix is to reproduce that condition — make both planted units fire on **all** data, so sliding preserves the fit and only moves the kinks off-distribution:
+
+```python
+thr = (inst.D_x @ B[0]).min()
+b[0] = -thr + 0.5          # unit 0 fires on every data point
+b[1] = b[0] - 0.3          # unit 1 also fires on every data point (offset < margin)
+```
+
+With both firing everywhere on D, sliding both up keeps them firing (fit preserved), the ray runs up to the ceiling, and off-distribution the two units fire over different regions — a genuine functional ambiguity. Then the naive certificate undercounts, the null-space test sees identical firing patterns and fires, and both checks pass. I'd run it to confirm, but I'm fairly confident the current version fails as written.
+
+## Cosmetic: the 4C comment is wrong (results unaffected)
+
+`slopes=np.linspace(1.0,2.0,k)  # distinct positive slopes -> distinct kinks`. The kinks are *not* distinct — for every unit the midpoint bias is −5.5·slope and τ is −slope, so the kinks land at x=5.5 and x=1 for **all** units regardless of slope. This is actually fine for 4C's purpose (it isolates the *sign* effect cleanly, with zero kink-spread slack), so the numbers and checks are correct — but the comment misdescribes what's happening. If you wanted kink-spread slack too, you'd vary the bias-to-slope ratio across units.
