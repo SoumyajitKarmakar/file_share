@@ -1,0 +1,73 @@
+4561 intersection means, dim 384
+
+BASELINE adjacency AUC (raw, 384-d): 0.7322   [7975 adjacent / 23925 non-adjacent pairs]
+target=validturns  direction vocab (8): ['E', 'N', 'NE', 'NW', 'S', 'SE', 'SW', 'W']
+train (3648, 384)  val (913, 384)  target dim 8
+
+computing AGOP via rfm ...
+/u/skarmakar1/miniconda3/envs/world/lib/python3.10/site-packages/lightning_utilities/core/imports.py:14: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+======================================================================
+Fitting RFM with ntrain: 3648, d: 384, and nval: 913
+======================================================================
+Optimal M batch size: 3648
+Time taken for round 0: 0.8848006725311279 seconds
+Early stopping at iteration 1
+Optimal M batch size: 3648
+======================================================================
+Fitting RFM with ntrain: 3648, d: 384, and nval: 913
+======================================================================
+Optimal M batch size: 3648
+Time taken for round 0: 0.02112889289855957 seconds
+Early stopping at iteration 1
+Optimal M batch size: 3648
+======================================================================
+Fitting RFM with ntrain: 3648, d: 384, and nval: 913
+======================================================================
+Optimal M batch size: 3648
+Time taken for round 0: 0.02124643325805664 seconds
+Early stopping at iteration 1
+Optimal M batch size: 3648
+======================================================================
+Fitting RFM with ntrain: 3648, d: 384, and nval: 913
+======================================================================
+Optimal M batch size: 3648
+Time taken for round 0: 0.021052122116088867 seconds
+Early stopping at iteration 1
+Optimal M batch size: 3648
+======================================================================
+Fitting RFM with ntrain: 3648, d: 384, and nval: 913
+======================================================================
+Optimal M batch size: 3648
+Time taken for round 0: 0.0212247371673584 seconds
+Optimal M batch size: 3648
+Time taken for round 1: 0.03042292594909668 seconds
+Optimal M batch size: 3648
+Time taken for round 2: 0.0299685001373291 seconds
+Optimal M batch size: 3648
+Time taken for round 3: 0.02990126609802246 seconds
+Optimal M batch size: 3648
+Time taken for round 4: 0.02997279167175293 seconds
+Optimal M batch size: 3648
+======================================================================
+Fitting RFM with ntrain: 3648, d: 384, and nval: 913
+======================================================================
+Optimal M batch size: 3648
+Time taken for round 0: 0.021085023880004883 seconds
+Optimal M batch size: 3648
+Time taken for round 1: 0.02980184555053711 seconds
+Optimal M batch size: 3648
+Time taken for round 2: 0.02979111671447754 seconds
+Optimal M batch size: 3648
+Time taken for round 3: 0.02979564666748047 seconds
+Optimal M batch size: 3648
+Time taken for round 4: 0.030231714248657227 seconds
+Optimal M batch size: 3648
+Traceback (most recent call last):
+  File "/u/skarmakar1/world_model/NextLat/data/manhattan/agop_subspace.py", line 410, in <module>
+    main()
+  File "/u/skarmakar1/world_model/NextLat/data/manhattan/agop_subspace.py", line 351, in main
+    M = agop_rfm(train_X, train_y, val_X, val_y, kmax, args.rfm_iters, args.tuning_metric)
+  File "/u/skarmakar1/world_model/NextLat/data/manhattan/agop_subspace.py", line 199, in agop_rfm
+    raise RuntimeError("all RFM fits failed -- try --method mlp")
+RuntimeError: all RFM fits failed -- try --method mlp
